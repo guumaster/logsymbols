@@ -1,0 +1,11 @@
+linters:
+  disable:
+    - gochecknoglobals
+    - wsl
+  enable-all: true
+
+# all available settings of specific linters
+linters-settings:
+  funlen:
+    lines: 120
+    statements: 80

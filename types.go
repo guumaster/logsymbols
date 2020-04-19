@@ -1,5 +1,9 @@
 package logSymbols
 
+import (
+	"fmt"
+)
+
 var colorOn bool
 
 type symbol string
@@ -40,4 +44,8 @@ var fallback = Symbols{
 	Warning: symbol("‼"),
 	Warn:    symbol("‼"),
 	Error:   symbol("×"),
+}
+
+func (s Symbols) String() string {
+	return fmt.Sprintf("Info: %s Success: %s Warning: %s Error: %s", s.Info, s.Success, s.Warning, s.Error)
 }

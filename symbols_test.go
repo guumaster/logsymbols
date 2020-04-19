@@ -108,3 +108,8 @@ func TestAutodetectTTY(t *testing.T) {
 		assert.False(t, colorOn)
 	})
 }
+
+func TestSymbols_String(t *testing.T) {
+	s := osBaseSymbols.String()
+	assert.Equal(t, "Info: ℹ Success: ✔ Warning: ⚠ Error: ✖", s)
+}
