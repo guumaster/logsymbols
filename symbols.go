@@ -7,6 +7,7 @@ import (
 	"gopkg.in/gookit/color.v1"
 )
 
+// AutodetectTTY detects if it's on a TTY output
 func AutodetectTTY(f *os.File) {
 	if f == nil {
 		f = os.Stdout
@@ -20,6 +21,7 @@ func AutodetectTTY(f *os.File) {
 	ForceNoColors()
 }
 
+// Colorize adds colors to all symbols
 func Colorize(s Symbols) Symbols {
 	return Symbols{
 		Info:    symbol(color.Notice.Render(s.Info)),
@@ -31,12 +33,14 @@ func Colorize(s Symbols) Symbols {
 	}
 }
 
+// ForceColors force adding color to all symbols
 func ForceColors() {
 	colorOn = true
 
 	setGlobals(Colorize(osBaseSymbols))
 }
 
+// ForceNoColors force removing color to all symbols
 func ForceNoColors() {
 	colorOn = false
 
@@ -52,6 +56,7 @@ func setGlobals(s Symbols) {
 	Error = s.Error
 }
 
+// NormalSymbols returns a set with the normal symbols
 func NormalSymbols() Symbols {
 	if colorOn {
 		return Colorize(normal)
@@ -60,6 +65,7 @@ func NormalSymbols() Symbols {
 	return normal
 }
 
+// FallbackSymbols returns a set with the fallback symbols
 func FallbackSymbols() Symbols {
 	if colorOn {
 		return Colorize(fallback)
