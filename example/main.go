@@ -4,15 +4,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/guumaster/logSymbols"
+	"github.com/guumaster/logsymbols"
 )
 
 func main() {
 	fmt.Println("\nAutodetect: ")
-	fmt.Printf("%s info\n", logSymbols.Info)
-	fmt.Printf("%s success\n", logSymbols.Ok)
-	fmt.Printf("%s warning\n", logSymbols.Warning)
-	fmt.Printf("%s error\n", logSymbols.Error)
+	fmt.Printf("%s info\n", logsymbols.Info)
+	fmt.Printf("%s success\n", logsymbols.Ok)
+	fmt.Printf("%s warning\n", logsymbols.Warning)
+	fmt.Printf("%s error\n", logsymbols.Error)
 
 	// Output:
 	//
@@ -22,10 +22,10 @@ func main() {
 	// ⚠ warning
 	// ✖ error
 
-	logSymbols.ForceNoColors()
+	logsymbols.ForceNoColors()
 	fmt.Println("\nwithout-color")
-	fmt.Println("\tNormal ", logSymbols.NormalSymbols())
-	fmt.Println("\tFallback", logSymbols.FallbackSymbols())
+	fmt.Println("\tNormal ", logsymbols.NormalSymbols())
+	fmt.Println("\tFallback", logsymbols.FallbackSymbols())
 
 	// Output:
 	//
@@ -33,10 +33,10 @@ func main() {
 	//        Normal  {ℹ ✔ ⚠ ✖}
 	//        Fallback {i √ ‼ ×}
 
-	logSymbols.ForceColors()
+	logsymbols.ForceColors()
 	fmt.Println("\nwith-color")
-	fmt.Println("\tNormal ", logSymbols.NormalSymbols())
-	fmt.Println("\tFallback ", logSymbols.FallbackSymbols())
+	fmt.Println("\tNormal ", logsymbols.NormalSymbols())
+	fmt.Println("\tFallback ", logsymbols.FallbackSymbols())
 
 	// Output:
 	//

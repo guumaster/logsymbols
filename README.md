@@ -4,18 +4,18 @@
 [![License][license-badge]][license-link]
 [![Coverage][coverage-badge]][coverage-link]
 
-# logSymbols
+# log symbols
 
 > Colored symbols for various log levels
 Includes fallbacks for Windows CMD which only supports a [limited character set](https://en.wikipedia.org/wiki/Code_page_437).
 
 
 ### Linux/Mac
-![logSymbols on Linux](docs/screenshot.png)
+![logsymbols on Linux](docs/screenshot.png)
 
 ### Windows
 
-![logSymbols on Windows](docs/screenshot_windows.png)
+![logsymbols on Windows](docs/screenshot_windows.png)
 
 
 ## Install
@@ -51,7 +51,7 @@ func main() {
 
 ### Forcing colors
 
-`logSymbols` will autodetect if its not in TTY mode and remove all colors. You can force color output with this example:
+`logsymbols` will autodetect if its not in TTY mode and remove all colors. You can force color output with this example:
 
 ```go
 
@@ -65,7 +65,7 @@ func main() {
 ```
 ### Fallback Symbols
 
-`logSymbols` will autodetect which OS is running and will change to the proper icons on Windows. 
+`logsymbols` will autodetect which OS is running and will change to the proper icons on Windows. 
 
 You also can get the fallback symbols with this example:
 
@@ -123,8 +123,8 @@ If you like this tool and think is worth it, you can invite me a coffee:
 [license-badge]: https://img.shields.io/github/license/guumaster/logsymbols
 [license-link]: https://github.com/guumaster/logsymbols/blob/master/LICENSE
 
-[coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=guumaster_logSymbols&metric=coverage
-[coverage-link]: https://sonarcloud.io/dashboard?id=guumaster_logSymbols
+[coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=guumaster_logsymbols&metric=coverage
+[coverage-link]: https://sonarcloud.io/dashboard?id=guumaster_logsymbols
 
 [paypal-link]: https://www.paypal.me/guumaster
 [paypal-badge]: https://img.shields.io/static/v1?label=donate&message=PayPal&color=00457C&logo=paypal
