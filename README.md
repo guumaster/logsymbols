@@ -79,6 +79,10 @@ You also can get the fallback symbols with this example:
 
 ```
 
+### More examples
+
+See [example folder](example/main.go)
+
 
 ## Ported from npm version
 
