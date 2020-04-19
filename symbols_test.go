@@ -1,4 +1,4 @@
-package logSymbols
+package logsymbols
 
 import (
 	"fmt"
@@ -25,6 +25,7 @@ func ExampleForceNoColors() {
 
 func ExampleFallbackSymbols() {
 	f := FallbackSymbols()
+
 	fmt.Println("\nfallback")
 	fmt.Printf("%s info\n", f.Info)
 	fmt.Printf("%s success\n", f.Success)

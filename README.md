@@ -21,7 +21,7 @@ Includes fallbacks for Windows CMD which only supports a [limited character set]
 ## Install
 
 ```
-$ go get github.com/guumaster/logSymbols
+$ go get github.com/guumaster/logsymbols
 ```
 
 ## Usage
@@ -33,12 +33,12 @@ package main
 
 import (
   "fmt"
-  "github.com/guumaster/logSymbols"
+  "github.com/guumaster/logsymbols"
 )
 
 func main() {
-    fmt.Println(logSymbols.Success, 'Finished successfully!')
-    fmt.Println(logSymbols.Error, 'Something broke')
+    fmt.Println(logsymbols.Success, 'Finished successfully!')
+    fmt.Println(logsymbols.Error, 'Something broke')
 
     // On good OSes:  ✔ Finished successfully!
     //                ✖ Something broke
@@ -55,8 +55,8 @@ func main() {
 
 ```go
 
-  	logSymbols.ForceColors()
-    fmt.Println(logSymbols.Success, 'Finished successfully!')
+  	logsymbols.ForceColors()
+    fmt.Println(logsymbols.Success, 'Finished successfully!')
 
     // Terminal Output:  ✔ Finished successfully!
     // Redirected Output:       ^[[1;32m✔^[[0m Finished successfully!
@@ -71,7 +71,7 @@ You also can get the fallback symbols with this example:
 
 ```go
 
-    fallback := logSymbols.FallbackSymbols()
+    fallback := logsymbols.FallbackSymbols()
     fmt.Println(fallback.Success, 'Finished successfully!')
 
     // Output:  √ Finished successfully!
@@ -110,18 +110,18 @@ If you like this tool and think is worth it, you can invite me a coffee:
 
 
 <!-- JUST BADGES & LINKS -->
-[tests-badge]: https://img.shields.io/github/workflow/status/guumaster/hostctl/Test
-[tests-link]: https://github.com/guumaster/hostctl/actions?query=workflow%3ATest
+[tests-badge]: https://img.shields.io/github/workflow/status/guumaster/logsymbols/Test
+[tests-link]: https://github.com/guumaster/logsymbols/actions?query=workflow%3ATest
 
-[report-badge]: https://goreportcard.com/badge/github.com/guumaster/logSymbols
-[report-link]: https://goreportcard.com/report/github.com/guumaster/logSymbols
+[report-badge]: https://goreportcard.com/badge/github.com/guumaster/logsymbols
+[report-link]: https://goreportcard.com/report/github.com/guumaster/logsymbols
 
-[reference-badge]: https://godoc.org/github.com/guumaster/logSymbols?status.svg
-[reference-link]: https://pkg.go.dev/github.com/guumaster/logSymbols?tab=overview
+[reference-badge]: https://godoc.org/github.com/guumaster/logsymbols?status.svg
+[reference-link]: https://pkg.go.dev/github.com/guumaster/logsymbols?tab=overview
 
 
-[license-badge]: https://img.shields.io/github/license/guumaster/logSymbols
-[license-link]: https://github.com/guumaster/logSymbols/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/guumaster/logsymbols
+[license-link]: https://github.com/guumaster/logsymbols/blob/master/LICENSE
 
 [coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=guumaster_logSymbols&metric=coverage
 [coverage-link]: https://sonarcloud.io/dashboard?id=guumaster_logSymbols

@@ -1,6 +1,6 @@
 // +build !windows
 
-package logSymbols
+package logsymbols
 
 import (
 	"os"
@@ -8,5 +8,6 @@ import (
 
 func init() {
 	osBaseSymbols = normal
+
 	AutodetectTTY(os.Stdout)
 }

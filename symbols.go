@@ -1,4 +1,4 @@
-package logSymbols
+package logsymbols
 
 import (
 	"os"
@@ -11,11 +11,13 @@ func AutodetectTTY(f *os.File) {
 	if f == nil {
 		f = os.Stdout
 	}
+
 	if isatty.IsTerminal(f.Fd()) || isatty.IsCygwinTerminal(f.Fd()) {
 		ForceColors()
-	} else {
-		ForceNoColors()
+		return
 	}
+
+	ForceNoColors()
 }
 
 func Colorize(s Symbols) Symbols {
@@ -31,11 +33,13 @@ func Colorize(s Symbols) Symbols {
 
 func ForceColors() {
 	colorOn = true
+
 	setGlobals(Colorize(osBaseSymbols))
 }
 
 func ForceNoColors() {
 	colorOn = false
+
 	setGlobals(osBaseSymbols)
 }
 
@@ -52,6 +56,7 @@ func NormalSymbols() Symbols {
 	if colorOn {
 		return Colorize(normal)
 	}
+
 	return normal
 }
 
@@ -59,5 +64,6 @@ func FallbackSymbols() Symbols {
 	if colorOn {
 		return Colorize(fallback)
 	}
+
 	return fallback
 }

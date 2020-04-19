@@ -1,7 +1,7 @@
 linters:
   disable:
     - gochecknoglobals
-    - wsl
+    - gochecknoinits
   enable-all: true
 
 # all available settings of specific linters

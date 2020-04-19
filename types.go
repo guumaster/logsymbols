@@ -1,4 +1,4 @@
-package logSymbols
+package logsymbols
 
 import (
 	"fmt"

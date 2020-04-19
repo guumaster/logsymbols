@@ -1,4 +1,4 @@
-module github.com/guumaster/logSymbols
+module github.com/guumaster/logsymbols
 
 go 1.13
 
