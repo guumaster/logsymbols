@@ -30,8 +30,8 @@ func main() {
 	// Output:
 	//
 	// without-color
-	//        Normal  {ℹ ✔ ⚠ ✖}
-	//        Fallback {i √ ‼ ×}
+	//        Normal  Info: ℹ Success: ✔ Warning: ⚠ Error: ✖
+	//        Fallback Info: i Success: √ Warning: ‼ Error: ×
 
 	logsymbols.ForceColors()
 	fmt.Println("\nwith-color")
@@ -41,6 +41,6 @@ func main() {
 	// Output:
 	//
 	// with-color
-	//        Normal  {ℹ ✔ ✔ ⚠ ⚠ ✖}
-	//        Fallback  {i √ √ ‼ ‼ ×}
+	//        Normal  Info: ℹ Success: ✔ Warning: ⚠ Error: ✖
+	//        Fallback  Info: i Success: √ Warning: ‼ Error: ×
 }
