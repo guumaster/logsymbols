@@ -39,51 +39,56 @@ func ExampleFallbackSymbols() {
 }
 
 func TestNormalSymbols(t *testing.T) {
-	t.Run("no color", func(t *testing.T) {
-		ForceNoColors()
-		s := NormalSymbols()
+	sets := map[string]Symbols{
+		"normal":   NormalSymbols(),
+		"fallback": FallbackSymbols(),
+		"current":  CurrentSymbols(),
+	}
 
-		assert.Equal(t, s.Info, Symbol("ℹ"))
-		assert.Equal(t, s.Success, Symbol("✔"))
-		assert.Equal(t, s.Ok, Symbol("✔"))
-		assert.Equal(t, s.Warning, Symbol("⚠"))
-		assert.Equal(t, s.Error, Symbol("✖"))
-	})
+	for n, set := range sets {
+		s := set
+		name := n
 
-	t.Run("color", func(t *testing.T) {
-		ForceColors()
-		s := NormalSymbols()
+		t.Run("no color "+name, func(t *testing.T) {
+			ForceNoColors()
 
-		assert.Equal(t, s.Info, Symbol(color.Notice.Render(normal.Info)))
-		assert.Equal(t, s.Success, Symbol(color.Success.Render(normal.Success)))
-		assert.Equal(t, s.Ok, Symbol(color.Success.Render(normal.Ok)))
-		assert.Equal(t, s.Warning, Symbol(color.Warn.Render(normal.Warning)))
-		assert.Equal(t, s.Error, Symbol(color.Danger.Render(normal.Error)))
-	})
-}
+			var expected Symbols
+			switch name {
+			case "normal":
+				expected = NormalSymbols()
+			case "current":
+				expected = CurrentSymbols()
+			case "fallback":
+				expected = FallbackSymbols()
+			}
 
-func TestCurrentSymbols(t *testing.T) {
-	t.Run("no color", func(t *testing.T) {
-		ForceNoColors()
-		s := CurrentSymbols()
+			assert.Equal(t, s.Info, expected.Info)
+			assert.Equal(t, s.Success, expected.Success)
+			assert.Equal(t, s.Ok, expected.Ok)
+			assert.Equal(t, s.Warning, expected.Warning)
+			assert.Equal(t, s.Error, expected.Error)
+		})
 
-		assert.Equal(t, s.Info, Symbol("ℹ"))
-		assert.Equal(t, s.Success, Symbol("✔"))
-		assert.Equal(t, s.Ok, Symbol("✔"))
-		assert.Equal(t, s.Warning, Symbol("⚠"))
-		assert.Equal(t, s.Error, Symbol("✖"))
-	})
+		t.Run("color "+name, func(t *testing.T) {
+			ForceColors()
 
-	t.Run("color", func(t *testing.T) {
-		ForceColors()
-		s := CurrentSymbols()
+			var expected Symbols
+			switch name {
+			case "normal":
+				expected = NormalSymbols()
+			case "current":
+				expected = CurrentSymbols()
+			case "fallback":
+				expected = FallbackSymbols()
+			}
 
-		assert.Equal(t, s.Info, Symbol(color.Notice.Render(normal.Info)))
-		assert.Equal(t, s.Success, Symbol(color.Success.Render(normal.Success)))
-		assert.Equal(t, s.Ok, Symbol(color.Success.Render(normal.Ok)))
-		assert.Equal(t, s.Warning, Symbol(color.Warn.Render(normal.Warning)))
-		assert.Equal(t, s.Error, Symbol(color.Danger.Render(normal.Error)))
-	})
+			assert.Contains(t, expected.Info, s.Info)
+			assert.Contains(t, expected.Success, s.Success)
+			assert.Contains(t, expected.Ok, s.Ok)
+			assert.Contains(t, expected.Warning, s.Warning)
+			assert.Contains(t, expected.Error, s.Error)
+		})
+	}
 }
 
 func TestFallbackSymbols(t *testing.T) {
