@@ -6,51 +6,51 @@ import (
 
 var colorOn bool
 
-type symbol string
+type Symbol string
 
 var (
 	// Info represents the information symbol
-	Info symbol
+	Info Symbol
 	// Success represents the success symbol
-	Success symbol
+	Success Symbol
 	// Ok alias of Success
-	Ok symbol
+	Ok Symbol
 	// Warning represents the warning symbol
-	Warning symbol
+	Warning Symbol
 	// Warn alias of Warning
-	Warn symbol
+	Warn Symbol
 	// Error represents the error symbol
-	Error symbol
+	Error Symbol
 )
 
 // Symbols struct contains all symbols
 type Symbols struct {
-	Info    symbol
-	Success symbol
-	Ok      symbol
-	Warning symbol
-	Warn    symbol
-	Error   symbol
+	Info    Symbol
+	Success Symbol
+	Ok      Symbol
+	Warning Symbol
+	Warn    Symbol
+	Error   Symbol
 }
 
 var osBaseSymbols Symbols
 
 var normal = Symbols{
-	Info:    symbol("ℹ"),
-	Success: symbol("✔"),
-	Ok:      symbol("✔"),
-	Warning: symbol("⚠"),
-	Warn:    symbol("⚠"),
-	Error:   symbol("✖"),
+	Info:    Symbol("ℹ"),
+	Success: Symbol("✔"),
+	Ok:      Symbol("✔"),
+	Warning: Symbol("⚠"),
+	Warn:    Symbol("⚠"),
+	Error:   Symbol("✖"),
 }
 
 var fallback = Symbols{
-	Info:    symbol("i"),
-	Success: symbol("√"),
-	Ok:      symbol("√"),
-	Warning: symbol("‼"),
-	Warn:    symbol("‼"),
-	Error:   symbol("×"),
+	Info:    Symbol("i"),
+	Success: Symbol("√"),
+	Ok:      Symbol("√"),
+	Warning: Symbol("‼"),
+	Warn:    Symbol("‼"),
+	Error:   Symbol("×"),
 }
 
 // String returns a printable representation of Symbols struct

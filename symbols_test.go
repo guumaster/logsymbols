@@ -43,22 +43,46 @@ func TestNormalSymbols(t *testing.T) {
 		ForceNoColors()
 		s := NormalSymbols()
 
-		assert.Equal(t, s.Info, symbol("ℹ"))
-		assert.Equal(t, s.Success, symbol("✔"))
-		assert.Equal(t, s.Ok, symbol("✔"))
-		assert.Equal(t, s.Warning, symbol("⚠"))
-		assert.Equal(t, s.Error, symbol("✖"))
+		assert.Equal(t, s.Info, Symbol("ℹ"))
+		assert.Equal(t, s.Success, Symbol("✔"))
+		assert.Equal(t, s.Ok, Symbol("✔"))
+		assert.Equal(t, s.Warning, Symbol("⚠"))
+		assert.Equal(t, s.Error, Symbol("✖"))
 	})
 
 	t.Run("color", func(t *testing.T) {
 		ForceColors()
 		s := NormalSymbols()
 
-		assert.Equal(t, s.Info, symbol(color.Notice.Render(normal.Info)))
-		assert.Equal(t, s.Success, symbol(color.Success.Render(normal.Success)))
-		assert.Equal(t, s.Ok, symbol(color.Success.Render(normal.Ok)))
-		assert.Equal(t, s.Warning, symbol(color.Warn.Render(normal.Warning)))
-		assert.Equal(t, s.Error, symbol(color.Danger.Render(normal.Error)))
+		assert.Equal(t, s.Info, Symbol(color.Notice.Render(normal.Info)))
+		assert.Equal(t, s.Success, Symbol(color.Success.Render(normal.Success)))
+		assert.Equal(t, s.Ok, Symbol(color.Success.Render(normal.Ok)))
+		assert.Equal(t, s.Warning, Symbol(color.Warn.Render(normal.Warning)))
+		assert.Equal(t, s.Error, Symbol(color.Danger.Render(normal.Error)))
+	})
+}
+
+func TestCurrentSymbols(t *testing.T) {
+	t.Run("no color", func(t *testing.T) {
+		ForceNoColors()
+		s := CurrentSymbols()
+
+		assert.Equal(t, s.Info, Symbol("ℹ"))
+		assert.Equal(t, s.Success, Symbol("✔"))
+		assert.Equal(t, s.Ok, Symbol("✔"))
+		assert.Equal(t, s.Warning, Symbol("⚠"))
+		assert.Equal(t, s.Error, Symbol("✖"))
+	})
+
+	t.Run("color", func(t *testing.T) {
+		ForceColors()
+		s := CurrentSymbols()
+
+		assert.Equal(t, s.Info, Symbol(color.Notice.Render(normal.Info)))
+		assert.Equal(t, s.Success, Symbol(color.Success.Render(normal.Success)))
+		assert.Equal(t, s.Ok, Symbol(color.Success.Render(normal.Ok)))
+		assert.Equal(t, s.Warning, Symbol(color.Warn.Render(normal.Warning)))
+		assert.Equal(t, s.Error, Symbol(color.Danger.Render(normal.Error)))
 	})
 }
 
@@ -78,11 +102,11 @@ func TestFallbackSymbols(t *testing.T) {
 		ForceColors()
 		s := FallbackSymbols()
 
-		assert.Equal(t, s.Info, symbol(color.Notice.Render(fallback.Info)))
-		assert.Equal(t, s.Success, symbol(color.Success.Render(fallback.Success)))
-		assert.Equal(t, s.Ok, symbol(color.Success.Render(fallback.Ok)))
-		assert.Equal(t, s.Warning, symbol(color.Warn.Render(fallback.Warning)))
-		assert.Equal(t, s.Error, symbol(color.Danger.Render(fallback.Error)))
+		assert.Equal(t, s.Info, Symbol(color.Notice.Render(fallback.Info)))
+		assert.Equal(t, s.Success, Symbol(color.Success.Render(fallback.Success)))
+		assert.Equal(t, s.Ok, Symbol(color.Success.Render(fallback.Ok)))
+		assert.Equal(t, s.Warning, Symbol(color.Warn.Render(fallback.Warning)))
+		assert.Equal(t, s.Error, Symbol(color.Danger.Render(fallback.Error)))
 	})
 }
 

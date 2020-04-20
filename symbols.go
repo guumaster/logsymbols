@@ -24,12 +24,12 @@ func AutodetectTTY(f *os.File) {
 // Colorize adds colors to all symbols
 func Colorize(s Symbols) Symbols {
 	return Symbols{
-		Info:    symbol(color.Notice.Render(s.Info)),
-		Success: symbol(color.Success.Render(s.Success)),
-		Ok:      symbol(color.Success.Render(s.Ok)),
-		Warning: symbol(color.Warn.Render(s.Warning)),
-		Warn:    symbol(color.Warn.Render(s.Warn)),
-		Error:   symbol(color.Danger.Render(s.Error)),
+		Info:    Symbol(color.Notice.Render(s.Info)),
+		Success: Symbol(color.Success.Render(s.Success)),
+		Ok:      Symbol(color.Success.Render(s.Ok)),
+		Warning: Symbol(color.Warn.Render(s.Warning)),
+		Warn:    Symbol(color.Warn.Render(s.Warn)),
+		Error:   Symbol(color.Danger.Render(s.Error)),
 	}
 }
 
@@ -54,6 +54,15 @@ func setGlobals(s Symbols) {
 	Warning = s.Warning
 	Warn = s.Warn
 	Error = s.Error
+}
+
+// CurrentSymbols returns a set with the current OS symbols
+func CurrentSymbols() Symbols {
+	if colorOn {
+		return Colorize(osBaseSymbols)
+	}
+
+	return osBaseSymbols
 }
 
 // NormalSymbols returns a set with the normal symbols
