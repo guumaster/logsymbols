@@ -115,6 +115,15 @@ func TestFallbackSymbols(t *testing.T) {
 	})
 }
 
+func TestBaseSymbols(t *testing.T) {
+	s := BaseSymbols()
+
+	assert.Equal(t, s.Info, osBaseSymbols.Info)
+	assert.Equal(t, s.Success, osBaseSymbols.Success)
+	assert.Equal(t, s.Warning, osBaseSymbols.Warning)
+	assert.Equal(t, s.Error, osBaseSymbols.Error)
+}
+
 func TestAutodetectTTY(t *testing.T) {
 	t.Run("autodetect", func(t *testing.T) {
 		AutodetectTTY(os.Stdout)

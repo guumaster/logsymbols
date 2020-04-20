@@ -56,12 +56,17 @@ func setGlobals(s Symbols) {
 	Error = s.Error
 }
 
-// CurrentSymbols returns a set with the current OS symbols
+// CurrentSymbols returns a set with the current OS symbols (colored if color enabled)
 func CurrentSymbols() Symbols {
 	if colorOn {
 		return Colorize(osBaseSymbols)
 	}
 
+	return osBaseSymbols
+}
+
+// BaseSymbols returns a set with the current OS symbols
+func BaseSymbols() Symbols {
 	return osBaseSymbols
 }
 
