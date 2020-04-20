@@ -37,8 +37,8 @@ import (
 )
 
 func main() {
-    fmt.Println(logsymbols.Success, 'Finished successfully!')
-    fmt.Println(logsymbols.Error, 'Something broke')
+    fmt.Println(logsymbols.Success, "Finished successfully!")
+    fmt.Println(logsymbols.Error, "Something broke")
 
     // On good OSes:  ✔ Finished successfully!
     //                ✖ Something broke
@@ -56,7 +56,7 @@ func main() {
 ```go
 
   	logsymbols.ForceColors()
-    fmt.Println(logsymbols.Success, 'Finished successfully!')
+    fmt.Println(logsymbols.Success, "Finished successfully!")
 
     // Terminal Output:  ✔ Finished successfully!
     // Redirected Output:       ^[[1;32m✔^[[0m Finished successfully!
@@ -72,7 +72,7 @@ You also can get the fallback symbols with this example:
 ```go
 
     fallback := logsymbols.FallbackSymbols()
-    fmt.Println(fallback.Success, 'Finished successfully!')
+    fmt.Println(fallback.Success, "Finished successfully!")
 
     // Output:  √ Finished successfully!
 }
@@ -93,6 +93,7 @@ See [example folder](example/main.go)
 
 - [prabirshrestha/go-log-symbols](https://github.com/prabirshrestha/go-log-symbols)
 
+- [guumaster/cligger](https://github.com/guumaster/cligger)
 
 
 
