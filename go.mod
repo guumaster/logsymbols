@@ -1,6 +1,6 @@
 module github.com/guumaster/logsymbols
 
-go 1.13
+go 1.14
 
 require (
 	github.com/mattn/go-isatty v0.0.12

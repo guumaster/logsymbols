@@ -2,6 +2,10 @@
 
 package logsymbols
 
+import (
+	"os"
+)
+
 func init() {
 	osBaseSymbols = fallback
 
